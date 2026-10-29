@@ -11,8 +11,7 @@ language: zh-CN
 timezone: 'Asia/Shanghai'
 
 # ---------- 网址 ----------
-# 部署后把这里改成你的真实域名，例如 https://yunxi.vercel.app
-url: https://example.com
+url: https://blog-smoky-rho-78.vercel.app
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
