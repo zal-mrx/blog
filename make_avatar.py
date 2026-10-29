@@ -8,8 +8,8 @@ im = Image.open(SRC).convert("RGB")
 w, h = im.size
 
 # 取中心偏上一点的方形区域，让人脸占满
-side = int(min(w, h) * 0.92)
-cx, cy = w // 2, int(h * 0.47)
+side = int(min(w, h) * 0.74)
+cx, cy = w // 2, int(h * 0.44)
 box = (cx - side // 2, cy - side // 2, cx + side // 2, cy + side // 2)
 im = im.crop(box).resize((SIZE, SIZE), Image.LANCZOS)
 
