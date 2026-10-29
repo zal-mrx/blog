@@ -1,0 +1,156 @@
+# Butterfly 主题配置（只需写要覆盖的项，其余用主题默认值）
+
+# ---------- 顶部导航 ----------
+nav:
+  logo: /img/avatar.png
+  display_title: true
+  display_post_title: true
+  fixed: true
+
+menu:
+  主页: / || fas fa-home
+  博文: /archives/ || fas fa-archive
+  分类: /categories/ || fas fa-folder-open
+  标签: /tags/ || fas fa-tags
+  关于我: /about/ || fas fa-user
+
+social:
+  fab fa-github: https://github.com/yourname || Github || '#24292e'
+  fas fa-envelope: mailto:you@example.com || Email || '#4a7dbe'
+
+# ---------- 图片 ----------
+favicon: /img/avatar.png
+avatar:
+  img: /img/avatar.png
+  effect: false
+
+default_top_img: /img/banner.jpg
+index_img: /img/banner.jpg
+archive_img: /img/banner.jpg
+category_img: /img/banner.jpg
+tag_img: /img/banner.jpg
+
+# ---------- 首页 ----------
+index_top_img_height: 82vh
+
+subtitle:
+  enable: true
+  effect: true
+  typed_option: 'typeSpeed: 110, backSpeed: 55, loop: true'
+  source: false
+  sub:
+    - 欢迎来到 YSQ 的小窝
+    - 在代码与文字之间来回散步
+    - 把生活里细小的光收进这里
+
+index_layout: 3
+index_post_content:
+  method: 2
+  length: 160
+
+post_meta:
+  page:
+    date_type: created
+    date_format: date
+    categories: true
+    tags: false
+    label: true
+  post:
+    position: left
+    date_type: both
+    date_format: date
+    categories: true
+    tags: true
+    label: true
+
+# ---------- 侧边栏 ----------
+aside:
+  enable: true
+  hide: false
+  button: true
+  mobile: true
+  position: right
+  card_author:
+    enable: true
+    description: 在代码与文字之间来回散步
+    button:
+      enable: true
+      icon: fab fa-github
+      text: 关注我
+      link: https://github.com/yourname
+  card_announcement:
+    enable: true
+    content: 这里是我的小窝，随手记点技术、生活和想法。
+  card_recent_post:
+    enable: true
+    limit: 5
+    sort: date
+  card_categories:
+    enable: true
+    limit: 8
+    expand: none
+  card_tags:
+    enable: true
+    limit: 40
+    color: false
+  card_archives:
+    enable: true
+    type: monthly
+    format: YYYY年MM月
+    order: -1
+    limit: 8
+  card_webinfo:
+    enable: true
+    post_count: true
+    last_push_date: true
+
+# ---------- 右下角按钮 ----------
+rightside_scroll_percent: true
+
+# ---------- 显示 ----------
+display_mode: light
+darkmode:
+  enable: true
+  button: true
+  autoChangeMode: false
+
+preloader:
+  enable: false
+
+# ---------- 搜索（本地搜索） ----------
+search:
+  enable: true
+  use: local
+  local_search:
+    preload: true
+    top_n_per_article: 1
+    unescape: false
+    CDN:
+
+# ---------- 页脚 ----------
+footer:
+  owner:
+    enable: true
+    since: 2025
+  copyright:
+    enable: true
+    version: true
+  custom_text: 愿你我都能在自己的小窝里，安静地生长。
+
+# ---------- 访问统计（busuanzi 需要联网，先关掉，以后可开） ----------
+busuanzi:
+  site_uv: false
+  site_pv: false
+  page_pv: false
+
+# ---------- 资源来源：全部本地，国内访问不依赖 CDN ----------
+CDN:
+  internal_provider: local
+  third_party_provider: local
+  version: true
+
+# ---------- 自定义样式 ----------
+inject:
+  head:
+    - <link rel="stylesheet" href="/css/custom.css">
+  bottom: []

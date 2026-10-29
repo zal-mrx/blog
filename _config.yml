@@ -1,0 +1,87 @@
+# Hexo 主配置
+# 文档：https://hexo.io/zh-cn/docs/configuration
+
+# ---------- 站点 ----------
+title: 昨日晴空的小窝
+subtitle: ''
+description: '欢迎来到 YSQ 的小窝。在代码与文字之间来回散步，把生活里细小的光慢慢收起来。'
+keywords: '博客,随笔,记录,昨日晴空,YSQ'
+author: 昨日晴空
+language: zh-CN
+timezone: 'Asia/Shanghai'
+
+# ---------- 网址 ----------
+# 部署后把这里改成你的真实域名，例如 https://yunxi.vercel.app
+url: https://example.com
+root: /
+permalink: :year/:month/:day/:title/
+permalink_defaults:
+pretty_urls:
+  trailing_index: true
+  trailing_html: true
+
+# ---------- 目录 ----------
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+
+# ---------- 写作 ----------
+new_post_name: :title.md
+default_layout: post
+titlecase: false
+external_link:
+  enable: true
+  field: site
+  exclude: ''
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+syntax_highlighter: highlight.js
+highlight:
+  line_number: true
+  auto_detect: false
+  tab_replace: ''
+  wrap: true
+  hljs: false
+prismjs:
+  preprocess: true
+  line_number: true
+  tab_replace: ''
+
+# ---------- 首页 / 分页 ----------
+index_generator:
+  path: ''
+  per_page: 8
+  order_by: -date
+
+default_category: 未分类
+category_map:
+tag_map:
+
+meta_generator: true
+
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+updated_option: 'mtime'
+
+per_page: 8
+pagination_dir: page
+
+include:
+exclude:
+ignore:
+
+# ---------- 主题 ----------
+theme: butterfly
+
+# ---------- 部署 ----------
+# 部署方式见 README.md，暂时留空
+deploy:
+  type: ''
