@@ -20,14 +20,14 @@ comments: false
 
 ### 关于这个博客
 
-用 [Hexo](https://hexo.io/zh-cn/) + [Butterfly](https://butterfly.js.org/) 搭建，托管在静态平台上。
+用 Hexo 生成静态页面，主题是 Butterfly，代码托管在 GitHub，Netlify 自动构建部署，评论用 Giscus 存在 GitHub Discussions 里。
 
 没有广告，没有算法，只有我想写下来的东西。
 
 ### 联系我
 
-- GitHub：[yourname](https://github.com/yourname)
-- Email：[you@example.com](mailto:you@example.com)
+- GitHub：[zal-mrx](https://github.com/zal-mrx)
+- Email：[2959537317@qq.com](mailto:2959537317@qq.com)
 
 ---
 

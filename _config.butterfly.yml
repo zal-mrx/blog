@@ -1,4 +1,4 @@
-# Butterfly 主题配置（只需写要覆盖的项，其余用主题默认值）
+﻿# Butterfly 主题配置（只需写要覆盖的项，其余用主题默认值）
 
 # ---------- 顶部导航 ----------
 nav:
@@ -18,7 +18,7 @@ menu:
 
 social:
   fab fa-github: https://github.com/zal-mrx || Github || '#24292e'
-  fas fa-envelope: mailto:you@example.com || Email || '#4a7dbe'
+  fas fa-envelope: mailto:2959537317@qq.com || Email || '#4a7dbe'
 
 # ---------- 图片 ----------
 favicon: /img/avatar.png
@@ -79,7 +79,7 @@ aside:
       enable: true
       icon: fab fa-github
       text: 关注我
-      link: https://github.com/yourname
+      link: https://github.com/zal-mrx
   card_announcement:
     enable: true
     content: 这里是我的小窝，随手记点技术、生活和想法。
