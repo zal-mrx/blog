@@ -67,15 +67,24 @@ social:                   # 你的 GitHub / 邮箱
 
 ### 2. 换图片
 
-`source/img/` 里放这三张就够：
+`source/img/` 里的图，直接同名覆盖即可，不用改代码：
 
 | 文件 | 用在哪 |
 |---|---|
-| `banner.jpg` | 首屏背景（1920×1080 最好） |
+| `banner.jpg` | 电脑端首屏背景（1920×1080） |
+| `banner-mobile.jpg` | 手机端首屏背景（1080×1620，竖图） |
 | `avatar.png` | 头像 + 导航栏 logo + favicon（正方形，建议 240×240 以上） |
 | `cover-1.jpg` / `cover-2.jpg` | 文章封面（800×500 左右） |
+| `banner-cloud.jpg` | 之前那张云海背景，留着备用的，没在用 |
 
-直接同名覆盖即可，不用改代码。想换成自己拍的照片，把图丢进去、文件名对上就行。
+现在的首屏是用插画 `hero-source.jpg`（放在项目根目录）合成的：`make_hero.py` 会把人像从白底抠出来，贴到深色渐变上，同时生成电脑版和手机版。
+想重新调整人物位置/大小，改 `make_hero.py` 末尾两个 `compose(...)` 的参数（`fg_h` 大小、`x0/y0` 位置），然后：
+
+```bash
+python make_hero.py      # 需要 Pillow 和 numpy
+```
+
+生成的预览在 `../shots/` 目录，满意了再复制成 `source/img/banner.jpg` 和 `banner-mobile.jpg`。
 
 ### 3. 写新文章
 

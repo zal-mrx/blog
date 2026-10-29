@@ -14,6 +14,46 @@
   text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5);
 }
 
+/* 桌面端：文字靠左，把右侧让给人物 */
+@media screen and (min-width: 769px) {
+  #page-header.full_page #site-info {
+    padding-left: 9vw;
+    padding-right: 48vw;
+  }
+
+  #page-header.full_page #site-title,
+  #page-header.full_page #site-subtitle {
+    text-align: left;
+  }
+}
+
+/* 手机端：换成竖版人物图，文字上移 */
+@media screen and (max-width: 768px) {
+  #page-header.full_page {
+    background-image: url("/img/banner-mobile.jpg") !important;
+    background-size: cover;
+    background-position: center bottom;
+    background-attachment: scroll;
+  }
+
+  #page-header.full_page #site-info {
+    top: 17%;
+  }
+
+  /* 手机首屏不显示社交图标，避免压在人物脸上（侧边栏已有） */
+  #page-header.full_page #site_social_icons {
+    display: none !important;
+  }
+
+  #page-header.full_page #site-title {
+    font-size: 1.9rem;
+  }
+
+  #page-header.full_page #site-subtitle {
+    font-size: 0.95rem;
+  }
+}
+
 /* 首屏底部波浪分隔 */
 #page-header {
   position: relative;
