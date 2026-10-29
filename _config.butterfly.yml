@@ -10,6 +10,7 @@ nav:
 menu:
   主页: / || fas fa-home
   博文: /archives/ || fas fa-archive
+  相册: /gallery/ || fas fa-images
   分类: /categories/ || fas fa-folder-open
   标签: /tags/ || fas fa-tags
   留言板: /message/ || fas fa-comment-dots
@@ -154,7 +155,9 @@ CDN:
 inject:
   head:
     - <link rel="stylesheet" href="/css/custom.css">
-  bottom: []
+    - <link rel="stylesheet" href="/css/album.css">
+  bottom:
+    - <script src="/js/album.js"></script>
 
 # ---------- 评论 / 留言板（Giscus，数据存在 GitHub Discussions）----------
 comments:
