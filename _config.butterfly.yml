@@ -12,10 +12,11 @@ menu:
   博文: /archives/ || fas fa-archive
   分类: /categories/ || fas fa-folder-open
   标签: /tags/ || fas fa-tags
+  留言板: /message/ || fas fa-comment-dots
   关于我: /about/ || fas fa-user
 
 social:
-  fab fa-github: https://github.com/yourname || Github || '#24292e'
+  fab fa-github: https://github.com/zal-mrx || Github || '#24292e'
   fas fa-envelope: mailto:you@example.com || Email || '#4a7dbe'
 
 # ---------- 图片 ----------
@@ -155,24 +156,25 @@ inject:
     - <link rel="stylesheet" href="/css/custom.css">
   bottom: []
 
-# ---------- 评论 / 留言板（Giscus，用 GitHub Discussions 存储）----------
-# 拿到下面四个值后，去掉每行开头的 # 并填好，然后重新生成即可生效：
-#   repo / repo_id / category / category_id 都在 https://giscus.app/zh-CN 填写仓库后自动生成
-#
-# comments:
-#   use: Giscus
-#   text: true
-#   lazyload: false
-#   count: true
-#   giscus:
-#     repo: yourname/blog
-#     repo_id: R_kgDOxxxxxxx
-#     category: Announcements
-#     category_id: DIC_kwDOxxxxxxxx
-#     mapping: pathname
-#     strict: 0
-#     reactions_enabled: 1
-#     emit_metadata: 0
-#     input_position: top
-#     theme: light
-#     lang: zh-CN
+# ---------- 评论 / 留言板（Giscus，数据存在 GitHub Discussions）----------
+comments:
+  use: Giscus
+  text: true
+  lazyload: false
+  count: false
+  card_post_count: false
+
+giscus:
+  repo: zal-mrx/blog
+  repo_id: R_kgDOVbv6Hg
+  category_id: DIC_kwDOVbv6Hs4DJ6qB
+  light_theme: light
+  dark_theme: dark
+  js:
+  option:
+    data-mapping: pathname
+    data-strict: '0'
+    data-reactions-enabled: '1'
+    data-emit-metadata: '0'
+    data-input-position: bottom
+    data-lang: zh-CN
