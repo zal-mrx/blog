@@ -11,7 +11,7 @@ language: zh-CN
 timezone: 'Asia/Shanghai'
 
 # ---------- 网址 ----------
-url: https://blog-smoky-rho-78.vercel.app
+url: https://guileless-narwhal-616d5f.netlify.app
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
