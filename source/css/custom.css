@@ -97,3 +97,31 @@
     font-size: 2.1rem;
   }
 }
+
+/* ===== 导航栏点击动效 ===== */
+#nav a,
+#nav .site-page,
+#nav #search-button,
+#nav #toggle-menu {
+  transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.2s ease,
+    background-color 0.2s ease;
+  will-change: transform;
+  transform-origin: center;
+}
+
+#nav a:active,
+#nav .site-page:active,
+#nav #search-button:active,
+#nav #toggle-menu:active {
+  transform: scale(1.16);
+}
+
+@keyframes navPulse {
+  0%   { transform: scale(1); }
+  45%  { transform: scale(1.18); }
+  100% { transform: scale(1); }
+}
+
+.nav-pulse {
+  animation: navPulse 0.34s cubic-bezier(0.34, 1.56, 0.64, 1);
+}

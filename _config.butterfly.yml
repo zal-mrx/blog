@@ -88,11 +88,11 @@ aside:
     limit: 5
     sort: date
   card_categories:
-    enable: true
+    enable: false
     limit: 8
     expand: none
   card_tags:
-    enable: true
+    enable: false
     limit: 40
     color: false
   card_archives:
@@ -158,6 +158,7 @@ inject:
     - <link rel="stylesheet" href="/css/album.css">
   bottom:
     - <script src="/js/album.js"></script>
+    - <script src="/js/nav.js"></script>
 
 # ---------- 评论 / 留言板（Giscus，数据存在 GitHub Discussions）----------
 comments:
