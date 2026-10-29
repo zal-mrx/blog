@@ -154,3 +154,25 @@ inject:
   head:
     - <link rel="stylesheet" href="/css/custom.css">
   bottom: []
+
+# ---------- 评论 / 留言板（Giscus，用 GitHub Discussions 存储）----------
+# 拿到下面四个值后，去掉每行开头的 # 并填好，然后重新生成即可生效：
+#   repo / repo_id / category / category_id 都在 https://giscus.app/zh-CN 填写仓库后自动生成
+#
+# comments:
+#   use: Giscus
+#   text: true
+#   lazyload: false
+#   count: true
+#   giscus:
+#     repo: yourname/blog
+#     repo_id: R_kgDOxxxxxxx
+#     category: Announcements
+#     category_id: DIC_kwDOxxxxxxxx
+#     mapping: pathname
+#     strict: 0
+#     reactions_enabled: 1
+#     emit_metadata: 0
+#     input_position: top
+#     theme: light
+#     lang: zh-CN
