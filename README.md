@@ -2,7 +2,10 @@
 
 一个用 **Hexo + Butterfly** 搭的个人博客，配色是深青色「雨后海面」，首屏带云海背景、打字机副标题和波浪分隔。
 
-本地已经能跑了，下一步是换成你自己的内容，然后发布到网上。
+**线上地址：<https://guileless-narwhal-616d5f.netlify.app/>**
+**代码仓库：<https://github.com/zal-mrx/blog>**
+
+改完内容提交推送，Netlify 会自动重新部署，几十秒后线上就更新了。
 
 ---
 
@@ -102,43 +105,35 @@ description: 首页卡片上显示的一句话简介
 
 ---
 
-## 四、发布到网上（三种选一个）
+## 四、线上部署（已完成）
 
-> 前提：`_config.yml` 里的 `url:` 改成你的真实地址，否则文章里的分享链接会是 example.com。
+站点已经跑在 **Netlify** 上，从 GitHub 仓库自动构建：
 
-### 方案 A：Vercel（推荐，免费、免备案、自带 HTTPS）
+- 仓库：`zal-mrx/blog`
+- 构建命令：`npm run build`，发布目录：`public`
+- 每次 `git push` 后，Netlify 自动重新部署，约 1 分钟生效
 
-1. 注册 <https://vercel.com>（用 GitHub 账号登录）
-2. 把 `myblog` 整个文件夹传到一个 GitHub 仓库
-3. Vercel → **Add New → Project** → 选这个仓库
-4. 构建设置填：
-   - Framework Preset: `Hexo`
-   - Build Command: `npm run build`
-   - Output Directory: `public`
-5. 点 Deploy，几十秒后拿到 `xxx.vercel.app` 的网址
+### 怎么更新内容
 
-### 方案 B：Cloudflare Pages（同样免费免备案，国内访问略好）
+在本机 `myblog` 目录执行：
 
-Build command 填 `npm run build`，Build output directory 填 `public`。
-
-### 方案 C：GitHub Pages
-
-装 `hexo-deployer-git`，在 `_config.yml` 底部配置：
-
-```yaml
-deploy:
-  type: git
-  repo: https://github.com/你的用户名/你的用户名.github.io.git
-  branch: main
+```bash
+git add -A
+git commit -m "写点说明"
+git push
 ```
 
-然后 `hexo clean && hexo generate && hexo deploy`。
+推完等一分钟，线上就是新的了。
+
+> **为什么不用 Vercel？** `*.vercel.app` 在大陆被 DNS 污染（解析到 199.193.116.105 黑洞），打不开；`*.netlify.app` 实测 660ms 可通。
+> 如果以后 Netlify 也不行了，备选：Cloudflare Pages（`pages.dev` 实测也可通，构建命令同样填 `npm run build`、目录 `public`）。
 
 ### 想用自己的域名
 
 - 域名在阿里云 / 腾讯云 / Namecheap 买，一年几十块
-- Vercel/Cloudflare 后台添加域名，按提示去域名商加一条 CNAME 记录
-- **注意**：服务器或 CDN 放在中国大陆境内，域名必须做 ICP 备案；用 Vercel / Cloudflare 这类境外托管则不需要备案
+- Netlify 后台 **Domain management → Add a domain**，按提示去域名商加一条 CNAME 记录
+- 换域名后记得同步改 `_config.yml` 里的 `url:`
+- **注意**：服务器或 CDN 放在中国大陆境内，域名必须做 ICP 备案；Netlify 这类境外托管则不需要备案
 
 ---
 
@@ -147,8 +142,9 @@ deploy:
 **Q：改了配置没生效？**
 A：`_config.yml` 和 `_config.butterfly.yml` 的改动要重启预览（关掉窗口重开）。
 
-**Q：想加评论 / 留言板？**
-A：Butterfly 支持 Waline、Twikoo、Giscus。最省事的是 Giscus（直接用 GitHub Discussions，免费无后端），在 `_config.butterfly.yml` 的 `comments:` 里配置即可。
+**Q：评论 / 留言板怎么用？**
+A：已经接好了 **Giscus**（评论存在 `zal-mrx/blog` 仓库的 Discussions 里，免费、无广告、永久保存）。访客用 GitHub 账号登录即可留言；你可以在 GitHub 仓库的 **Discussions** 标签里看到并回复所有评论。
+相关配置在 `_config.butterfly.yml` 的 `comments:` 和 `giscus:` 两段，`repo_id` / `category_id` 都是绑定的，别乱改。
 
 **Q：想加「相册」页？**
 A：需要 `hexo-butterfly-...` 系列的相册插件，或自己写一个页面嵌图床。导航里先不加，免得点进去是空的。
