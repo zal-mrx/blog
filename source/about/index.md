@@ -27,7 +27,7 @@ comments: false
 ### 联系我
 
 - GitHub：[zal-mrx](https://github.com/zal-mrx)
-- Email：[2959537317@qq.com](mailto:2959537317@qq.com)
+- Email：2959537317 # qq.com（把 # 换成 @ 就是邮箱）
 
 ---
 

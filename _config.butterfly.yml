@@ -18,7 +18,6 @@ menu:
 
 social:
   fab fa-github: https://github.com/zal-mrx || Github || '#24292e'
-  fas fa-envelope: mailto:2959537317@qq.com || Email || '#4a7dbe'
 
 # ---------- 图片 ----------
 favicon: /img/avatar.png

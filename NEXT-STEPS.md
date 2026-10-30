@@ -1,4 +1,4 @@
-# 项目进度 / 交接备忘
+﻿# 项目进度 / 交接备忘
 
 > 最后更新：2026-10-30 02:25
 > 给未来的自己（或 AI）看的：从这里接着干就行。
@@ -7,7 +7,7 @@
 
 | 项 | 值 |
 |---|---|
-| 线上地址 | https://guileless-narwhal-616d5f.netlify.app/ |
+| 线上地址 | **https://ysqxue.cn** （旧地址 guileless-narwhal-616d5f.netlify.app 仍可用） |
 | 代码仓库 | https://github.com/zal-mrx/blog （SSH 推送） |
 | 本地目录 | `C:\Users\LEGION\Documents\deepseek-harness\default-workspace\myblog` |
 | 技术栈 | Hexo 8 + Butterfly 5.7 |
@@ -27,7 +27,7 @@
 
 ## 三、待办（明天接着做）
 
-### 1. 域名 ysqxue.cn（最重要）
+### 1. 域名 ysqxue.cn（✅ 已完成 2026-10-30）
 
 - 阿里云信息模板「于烁奇」实名审核中（注册局审核，约 1 小时起）
 - 状态查询：阿里云控制台 → 域名 → 信息模板
