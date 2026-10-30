@@ -1,0 +1,501 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>关于我 · 昨日晴空的小窝</title>
+<meta name="description" content="昨日晴空 —— 一个简单又无聊的人，喜欢小猫、雏田、散步和雨声。">
+<link rel="icon" href="/img/avatar.png">
+<style>
+  :root {
+    --card: rgba(255, 255, 255, 0.055);
+    --card-hover: rgba(255, 255, 255, 0.09);
+    --line: rgba(255, 255, 255, 0.13);
+    --txt: #eef2ff;
+    --dim: rgba(238, 242, 255, 0.62);
+    --accent: #8ab4ff;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body { min-height: 100%; overflow-x: hidden; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+      "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    color: var(--txt);
+    background: #070a14;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 背景 */
+  .bg {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
+    z-index: -2;
+    background-image: var(--bg-img, url("/img/banner.jpg"));
+    background-size: cover;
+    background-position: center;
+    filter: saturate(1.05);
+    pointer-events: none;
+  }
+
+  .bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(120% 90% at 20% 0%, rgba(20, 32, 64, 0.35), rgba(4, 8, 18, 0.82) 70%),
+      linear-gradient(180deg, rgba(4, 8, 18, 0.55) 0%, rgba(4, 8, 18, 0.86) 100%);
+  }
+
+  /* 顶部 */
+  .topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 66px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 26px;
+    z-index: 20;
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    background: linear-gradient(180deg, rgba(10, 16, 32, 0.55), rgba(10, 16, 32, 0.2));
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  .topbar a { color: var(--txt); text-decoration: none; font-size: 14px; opacity: 0.85; transition: opacity 0.2s; }
+  .topbar a:hover { opacity: 1; }
+
+  .back { display: inline-flex; align-items: center; gap: 7px; letter-spacing: 0.02em; }
+
+  .top-nav { display: flex; gap: 22px; }
+  .top-nav a { font-size: 13.5px; }
+
+  /* 主网格 */
+  .wrap {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 106px 26px 130px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 300px minmax(0, 1fr) 290px;
+    gap: 18px;
+    align-items: start;
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    backdrop-filter: blur(22px) saturate(150%);
+    -webkit-backdrop-filter: blur(22px) saturate(150%);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+
+  /* 左侧名片 */
+  .profile { padding: 26px 22px; text-align: center; }
+
+  .avatar {
+    width: 108px;
+    height: 108px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.22);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    margin-bottom: 16px;
+  }
+
+  .profile h1 { font-size: 22px; font-weight: 650; letter-spacing: 0.04em; }
+
+  .status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 9px;
+    padding: 4px 11px;
+    border-radius: 999px;
+    font-size: 12px;
+    color: var(--dim);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: #4ade80; box-shadow: 0 0 8px #4ade80; }
+
+  .bio {
+    margin: 18px 0 22px;
+    font-size: 13.5px;
+    line-height: 1.85;
+    color: var(--dim);
+    text-align: left;
+  }
+
+  .btn {
+    display: block;
+    padding: 12px 0;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 14.5px;
+    font-weight: 550;
+    letter-spacing: 0.05em;
+    background: linear-gradient(135deg, rgba(120, 160, 255, 0.9), rgba(90, 110, 220, 0.9));
+    box-shadow: 0 10px 26px rgba(90, 120, 255, 0.3);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+  }
+
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(90, 120, 255, 0.42); }
+  .btn:active { transform: scale(0.97); }
+
+  .links { display: flex; justify-content: center; gap: 16px; margin-top: 20px; }
+  .links a { font-size: 13px; color: var(--dim); text-decoration: none; transition: color 0.2s; }
+  .links a:hover { color: var(--txt); }
+
+  /* 中间 */
+  .center { padding: 6px 6px 0; }
+
+  .eyebrow {
+    font-size: 12.5px;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    margin-bottom: 16px;
+    opacity: 0.9;
+  }
+
+  .center h2 {
+    font-size: clamp(38px, 5.2vw, 62px);
+    line-height: 1.12;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .center h2 span {
+    background: linear-gradient(100deg, #a9c6ff 0%, #d6b8ff 55%, #ffd7ea 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .desc {
+    margin-top: 18px;
+    max-width: 520px;
+    font-size: 14.5px;
+    line-height: 1.95;
+    color: var(--dim);
+  }
+
+  .entries { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 26px; }
+
+  .entry {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 132px;
+    padding: 18px;
+    border-radius: 18px;
+    text-decoration: none;
+    color: #fff;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: linear-gradient(150deg, rgba(90, 120, 200, 0.35), rgba(20, 28, 52, 0.55));
+    transition: transform 0.22s ease, border-color 0.22s ease;
+  }
+
+  .entry:hover { transform: translateY(-3px); border-color: rgba(255, 255, 255, 0.26); }
+  .entry span { font-size: 17px; font-weight: 600; }
+  .entry small { margin-top: 6px; font-size: 10.5px; letter-spacing: 0.16em; opacity: 0.55; }
+  .entry.gallery { background-image: linear-gradient(150deg, rgba(110, 170, 255, 0.4), rgba(20, 30, 60, 0.6)); }
+  .entry.posts { background-image: linear-gradient(150deg, rgba(190, 150, 255, 0.38), rgba(28, 22, 48, 0.6)); }
+
+  /* 右侧 */
+  .right { display: grid; gap: 14px; }
+
+  .stats { display: grid; grid-template-columns: 1fr 1fr; padding: 20px 10px; text-align: center; }
+  .stats b { display: block; font-size: 26px; font-weight: 700; letter-spacing: -0.01em; }
+  .stats span { font-size: 11.5px; color: var(--dim); letter-spacing: 0.08em; }
+
+  .weather { padding: 18px 20px; }
+  .w-date { font-size: 12px; color: var(--dim); letter-spacing: 0.05em; }
+  .w-main { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
+  .w-main b { font-size: 30px; font-weight: 650; }
+  .w-main small { font-size: 13px; color: var(--dim); }
+  .w-icon { font-size: 26px; line-height: 1; }
+  .w-city { margin-top: 6px; font-size: 11.5px; color: rgba(238, 242, 255, 0.45); letter-spacing: 0.1em; }
+
+  .dy { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; text-decoration: none; color: var(--txt); transition: background 0.2s; }
+  .dy:hover { background: var(--card-hover); }
+  .dy-left { display: flex; align-items: center; gap: 10px; font-size: 14px; }
+  .dy-logo { width: 26px; height: 26px; border-radius: 8px; background: linear-gradient(135deg, #25f4ee, #fe2c55); }
+  .dy small { font-size: 11.5px; color: var(--dim); }
+
+  /* 音乐条 */
+  .player {
+    position: fixed;
+    left: 22px;
+    bottom: 22px;
+    display: none;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px 10px 10px;
+    border-radius: 999px;
+    background: rgba(14, 20, 38, 0.6);
+    border: 1px solid var(--line);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    z-index: 30;
+  }
+
+  .player.on { display: flex; }
+
+  .p-btn {
+    width: 38px; height: 38px; border-radius: 50%;
+    border: none; cursor: pointer;
+    background: linear-gradient(135deg, rgba(120, 160, 255, 0.95), rgba(90, 110, 220, 0.95));
+    color: #fff; font-size: 14px;
+    display: grid; place-items: center;
+    transition: transform 0.18s;
+  }
+  .p-btn:active { transform: scale(0.92); }
+
+  .p-info { display: flex; flex-direction: column; line-height: 1.35; }
+  .p-title { font-size: 12.5px; }
+  .p-sub { font-size: 10.5px; color: rgba(238, 242, 255, 0.5); letter-spacing: 0.1em; }
+
+  /* 弹窗 */
+  .modal {
+    position: fixed; inset: 0; z-index: 50;
+    display: none; align-items: center; justify-content: center;
+    background: rgba(4, 8, 18, 0.78);
+    backdrop-filter: blur(8px);
+  }
+  .modal.on { display: flex; }
+  .modal-box {
+    width: min(360px, 88vw);
+    padding: 26px;
+    border-radius: 22px;
+    text-align: center;
+    background: rgba(18, 24, 42, 0.92);
+    border: 1px solid var(--line);
+    animation: pop 0.24s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  @keyframes pop { from { opacity: 0; transform: scale(0.92); } to { opacity: 1; transform: scale(1); } }
+  .modal-box h3 { font-size: 17px; margin-bottom: 6px; font-weight: 600; }
+  .modal-box p { font-size: 12.5px; color: var(--dim); margin-bottom: 16px; }
+  .modal-box img { width: 220px; height: 220px; border-radius: 14px; background: #fff; padding: 8px; }
+  .modal-close { margin-top: 18px; width: 100%; padding: 10px; border-radius: 10px; border: 1px solid var(--line); background: transparent; color: var(--txt); cursor: pointer; font-size: 13px; }
+
+  /* 手机 */
+  @media (max-width: 980px) {
+    .grid { grid-template-columns: 1fr; }
+    .right { grid-template-columns: 1fr 1fr; }
+    .right .dy { grid-column: 1 / -1; }
+    .center { padding: 4px 0 0; }
+    .wrap { padding: 92px 18px 120px; }
+    .top-nav { display: none; }
+  }
+
+  @media (max-width: 560px) {
+    .from { display: none; }
+    .entries { grid-template-columns: 1fr; }
+    .right { grid-template-columns: 1fr; }
+    .player { left: 12px; bottom: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="bg"></div>
+
+<header class="topbar">
+  <a class="back" href="/">← 返回小窝</a>
+  <nav class="top-nav">
+    <a href="/">主页</a>
+    <a href="/archives/">文章</a>
+    <a href="/gallery/">相册</a>
+    <a href="/message/">留言板</a>
+  </nav>
+</header>
+
+<main class="wrap">
+  <div class="grid">
+
+    <!-- 左：名片 -->
+    <aside class="card profile">
+      <img class="avatar" src="/img/avatar.png" alt="头像">
+      <h1>昨日晴空</h1>
+      <div class="status"><span class="dot"></span>正在记录生活</div>
+      <p class="bio">
+        一个简单又无聊的人，特别喜欢小猫还有雏田啊，喜欢一个人散步，喜欢雨声和一切慢下来的东西。
+      </p>
+      <a class="btn" href="/message/">留言给我 →</a>
+      <div class="links">
+        <a href="https://github.com/zal-mrx" target="_blank" rel="noopener">GitHub</a>
+        <a href="/archives/">文章</a>
+        <a href="/gallery/">相册</a>
+      </div>
+    </aside>
+
+    <!-- 中：主视觉 -->
+    <section class="center">
+      <div class="eyebrow">✦　正在记录</div>
+      <h2>Hello, I'm<br><span>昨日晴空</span></h2>
+      <p class="desc">
+        在代码与文字之间来回散步，把生活里细小的光慢慢收起来。<br>
+        网站并不成熟，很多都在慢慢摸索，每天都有改进。
+      </p>
+
+      <div class="entries">
+        <a class="entry gallery" href="/gallery/">
+          <span>我的图库</span>
+          <small>PHOTO ARCHIVE</small>
+        </a>
+        <a class="entry posts" href="/archives/">
+          <span>写下的东西</span>
+          <small>ALL ARTICLES</small>
+        </a>
+      </div>
+    </section>
+
+    <!-- 右：数据 / 天气 / 抖音 -->
+    <aside class="right">
+      <div class="card stats">
+        <div><b id="stat-posts">—</b><span>篇文章</span></div>
+        <div><b id="stat-days">—</b><span>天记录</span></div>
+      </div>
+
+      <div class="card weather">
+        <div class="w-date" id="w-date">加载中…</div>
+        <div class="w-main">
+          <span class="w-icon" id="w-icon">☁️</span>
+          <b id="w-temp">—</b>
+          <small id="w-desc">天气</small>
+        </div>
+        <div class="w-city">洛阳 · Luoyang</div>
+      </div>
+
+      <a class="card dy" href="#" id="dy-card">
+        <span class="dy-left"><span class="dy-logo"></span>抖音</span>
+        <small id="dy-id">@待填写</small>
+      </a>
+    </aside>
+
+  </div>
+</main>
+
+<!-- 音乐条 -->
+<div class="player" id="player">
+  <button class="p-btn" id="p-btn" aria-label="播放">▶</button>
+  <div class="p-info">
+    <span class="p-title" id="p-title">背景音乐</span>
+    <span class="p-sub">NOW PLAYING</span>
+  </div>
+</div>
+<audio id="audio" loop preload="none"></audio>
+
+<!-- 抖音弹窗 -->
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <h3>抖音</h3>
+    <p id="modal-tip">扫码来找我</p>
+    <img id="modal-qr" src="/img/douyin-qr.png" alt="抖音二维码" onerror="this.style.display='none'">
+    <button class="modal-close" id="modal-close">关闭</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  /* ---------- 日期 ---------- */
+  var WEEK = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+  function fmtDate(d) {
+    return d.getFullYear() + ' 年 ' + (d.getMonth() + 1) + ' 月 ' + d.getDate() + ' 日 · ' + WEEK[d.getDay()];
+  }
+  var now = new Date();
+  document.getElementById('w-date').textContent = fmtDate(now);
+
+  /* ---------- 建站天数 ---------- */
+  var START = new Date('2026-10-29T00:00:00+08:00');
+  var days = Math.floor((now - START) / 86400000) + 1;
+  document.getElementById('stat-days').textContent = days;
+
+  /* ---------- 文章数（读搜索索引） ---------- */
+  fetch('/search.json')
+    .then(function (r) { return r.json(); })
+    .then(function (list) {
+      var n = (list || []).filter(function (p) { return p.url && p.url.indexOf('/2') === 0; }).length;
+      document.getElementById('stat-posts').textContent = n || '—';
+    })
+    .catch(function () { document.getElementById('stat-posts').textContent = '—'; });
+
+  /* ---------- 天气（Open-Meteo，免费无需 key） ---------- */
+  var CODES = {
+    0: ['☀️', '晴'], 1: ['🌤️', '大部晴朗'], 2: ['⛅', '多云'], 3: ['☁️', '阴'],
+    45: ['🌫️', '雾'], 48: ['🌫️', '雾凇'],
+    51: ['🌦️', '小毛毛雨'], 53: ['🌦️', '毛毛雨'], 55: ['🌧️', '大毛毛雨'],
+    61: ['🌧️', '小雨'], 63: ['🌧️', '中雨'], 65: ['🌧️', '大雨'],
+    66: ['🌧️', '冻雨'], 67: ['🌧️', '强冻雨'],
+    71: ['🌨️', '小雪'], 73: ['🌨️', '中雪'], 75: ['❄️', '大雪'], 77: ['🌨️', '雪粒'],
+    80: ['🌦️', '阵雨'], 81: ['🌧️', '强阵雨'], 82: ['⛈️', '暴雨'],
+    85: ['🌨️', '阵雪'], 86: ['❄️', '强阵雪'],
+    95: ['⛈️', '雷阵雨'], 96: ['⛈️', '雷阵雨伴冰雹'], 99: ['⛈️', '强雷雨伴冰雹']
+  };
+
+  var url = 'https://api.open-meteo.com/v1/forecast' +
+    '?latitude=34.6197&longitude=112.4540' +
+    '&current=temperature_2m,weather_code' +
+    '&timezone=Asia%2FShanghai';
+
+  fetch(url)
+    .then(function (r) { return r.json(); })
+    .then(function (d) {
+      var cur = d.current || {};
+      var info = CODES[cur.weather_code] || ['🌡️', '未知'];
+      document.getElementById('w-icon').textContent = info[0];
+      document.getElementById('w-temp').textContent = Math.round(cur.temperature_2m) + '°';
+      document.getElementById('w-desc').textContent = info[1];
+    })
+    .catch(function () {
+      document.getElementById('w-desc').textContent = '天气加载失败';
+    });
+
+  /* ---------- 抖音弹窗 ---------- */
+  var modal = document.getElementById('modal');
+  document.getElementById('dy-card').addEventListener('click', function (e) {
+    e.preventDefault();
+    modal.classList.add('on');
+  });
+  document.getElementById('modal-close').addEventListener('click', function () {
+    modal.classList.remove('on');
+  });
+  modal.addEventListener('click', function (e) {
+    if (e.target === modal) modal.classList.remove('on');
+  });
+
+  /* ---------- 音乐播放器 ---------- */
+  var audio = document.getElementById('audio');
+  var player = document.getElementById('player');
+  var btn = document.getElementById('p-btn');
+  audio.src = '/music/bgm.mp3';
+
+  audio.addEventListener('canplay', function () { player.classList.add('on'); });
+  audio.addEventListener('error', function () { player.classList.remove('on'); });
+
+  btn.addEventListener('click', function () {
+    if (audio.paused) { audio.play(); btn.textContent = '❚❚'; }
+    else { audio.pause(); btn.textContent = '▶'; }
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -1,4 +1,4 @@
-# Hexo 主配置
+﻿# Hexo 主配置
 # 文档：https://hexo.io/zh-cn/docs/configuration
 
 # ---------- 站点 ----------
@@ -28,6 +28,7 @@ category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
+  - 'about/**'
 
 # ---------- 写作 ----------
 new_post_name: :title.md
