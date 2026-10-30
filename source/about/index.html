@@ -37,7 +37,7 @@
     height: 100vh;
     max-width: 100%;
     z-index: -2;
-    background-image: var(--bg-img, url("/img/banner.jpg"));
+    background-image: var(--bg-img, url("/img/about-bg.jpg"));
     background-size: cover;
     background-position: center;
     filter: saturate(1.05);
@@ -49,8 +49,8 @@
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(120% 90% at 20% 0%, rgba(20, 32, 64, 0.35), rgba(4, 8, 18, 0.82) 70%),
-      linear-gradient(180deg, rgba(4, 8, 18, 0.55) 0%, rgba(4, 8, 18, 0.86) 100%);
+      linear-gradient(90deg, rgba(4, 8, 18, 0.95) 0%, rgba(4, 8, 18, 0.88) 28%, rgba(4, 8, 18, 0.48) 62%, rgba(4, 8, 18, 0.66) 100%),
+      linear-gradient(180deg, rgba(4, 8, 18, 0.55) 0%, rgba(4, 8, 18, 0.12) 42%, rgba(4, 8, 18, 0.75) 100%);
   }
 
   /* 顶部 */
@@ -386,22 +386,13 @@
 
       <a class="card dy" href="#" id="dy-card">
         <span class="dy-left"><span class="dy-logo"></span>抖音</span>
-        <small id="dy-id">@待填写</small>
+        <small id="dy-id">@发如雪</small>
       </a>
     </aside>
 
   </div>
 </main>
 
-<!-- 音乐条 -->
-<div class="player" id="player">
-  <button class="p-btn" id="p-btn" aria-label="播放">▶</button>
-  <div class="p-info">
-    <span class="p-title" id="p-title">背景音乐</span>
-    <span class="p-sub">NOW PLAYING</span>
-  </div>
-</div>
-<audio id="audio" loop preload="none"></audio>
 
 <!-- 抖音弹窗 -->
 <div class="modal" id="modal">
@@ -481,19 +472,6 @@
     if (e.target === modal) modal.classList.remove('on');
   });
 
-  /* ---------- 音乐播放器 ---------- */
-  var audio = document.getElementById('audio');
-  var player = document.getElementById('player');
-  var btn = document.getElementById('p-btn');
-  audio.src = '/music/bgm.mp3';
-
-  audio.addEventListener('canplay', function () { player.classList.add('on'); });
-  audio.addEventListener('error', function () { player.classList.remove('on'); });
-
-  btn.addEventListener('click', function () {
-    if (audio.paused) { audio.play(); btn.textContent = '❚❚'; }
-    else { audio.pause(); btn.textContent = '▶'; }
-  });
 })();
 </script>
 
