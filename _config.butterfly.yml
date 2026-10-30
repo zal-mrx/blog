@@ -1,4 +1,4 @@
-# Butterfly 主题配置（只需写要覆盖的项，其余用主题默认值）
+﻿# Butterfly 主题配置（只需写要覆盖的项，其余用主题默认值）
 
 # ---------- 顶部导航 ----------
 nav:
@@ -12,6 +12,8 @@ menu:
   博文: /archives/ || fas fa-archive
   相册: /gallery/ || fas fa-images
   留言板: /message/ || fas fa-comment-dots
+  说说: /shuoshuo/ || fas fa-feather-alt
+  分享: /share/ || fas fa-book-open
   关于我: /about/ || fas fa-user
 
 social:
@@ -41,14 +43,6 @@ subtitle:
     - 欢迎来到 YSQ 的小窝
     - 在代码与文字之间来回散步
     - 把生活里细小的光收进这里
-    - 人总是为了一个人一直一个人
-    - 人们传颂勇气 而我可不可以爱你哭泣的心
-    - 如果有一天你的世界越来越大 我会不会变得无足轻重
-    - 有我在你哭什么呢
-    - 你的世界真的，太大，太大，太大，我无处落脚
-    - 在你心里我和羽毛重量相同吗
-    - 结束的关系就不要反复咀嚼了
-    - 我喜欢一个人的方式是不去打扰她
 
 index_layout: 3
 index_post_content:
@@ -115,7 +109,7 @@ aside:
 rightside_scroll_percent: true
 
 # ---------- 显示 ----------
-display_mode: light
+display_mode: dark
 darkmode:
   enable: true
   button: true
@@ -185,3 +179,5 @@ giscus:
     data-emit-metadata: '0'
     data-input-position: bottom
     data-lang: zh-CN
+# ---------- 页面背景 ----------
+background: url(/img/page-bg.jpg)

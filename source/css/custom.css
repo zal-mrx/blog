@@ -194,3 +194,132 @@
   position: relative;
   z-index: 1;
 }
+
+/* ===== 暗色玻璃卡片（全站） ===== */
+[data-theme="dark"] #recent-posts > .recent-post-item,
+[data-theme="dark"] #aside-content .card-widget,
+[data-theme="dark"] #pagination .page-number,
+[data-theme="dark"] .post-content,
+[data-theme="dark"] #post,
+[data-theme="dark"] #archive,
+[data-theme="dark"] #page .page {
+  background: rgba(18, 22, 34, 0.55) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 14px;
+}
+
+/* 文章卡片之间的分隔线更清楚 */
+[data-theme="dark"] #recent-posts > .recent-post-item + .recent-post-item {
+  margin-top: 14px;
+}
+
+/* 标签 / 分类小胶囊：玻璃质感 */
+[data-theme="dark"] .post-meta__tag-list a,
+[data-theme="dark"] .post-meta__categories,
+[data-theme="dark"] #aside-content .card-tag-cloud a,
+[data-theme="dark"] .article-category a,
+[data-theme="dark"] .tag-cloud a {
+  background: rgba(255, 255, 255, 0.09) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  border-radius: 999px !important;
+  padding: 1px 10px !important;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+/* 首页文章卡片的内边距，避免文字贴边 */
+[data-theme="dark"] #recent-posts > .recent-post-item .recent-post-info {
+  padding: 18px 22px;
+}
+
+/* ===== 说说页 ===== */
+.say-wrap { max-width: 760px; margin: 0 auto; }
+
+.say-intro {
+  font-size: 13px;
+  color: rgba(238, 242, 255, 0.45);
+  letter-spacing: 0.08em;
+  margin-bottom: 26px;
+}
+
+.say-list { display: grid; gap: 14px; }
+
+.say-item {
+  position: relative;
+  padding: 20px 22px 18px 54px;
+  border-radius: 16px;
+  background: rgba(18, 22, 34, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  backdrop-filter: blur(16px) saturate(140%);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+    border-color 0.25s ease, box-shadow 0.25s ease;
+  overflow: hidden;
+}
+
+.say-item:hover {
+  transform: translateY(-3px);
+  border-color: rgba(150, 190, 255, 0.45);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45);
+}
+
+/* 每条一个会呼吸的光点 */
+.say-mark {
+  position: absolute;
+  left: 22px;
+  top: 26px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8ab4ff, #c9a6ff);
+  box-shadow: 0 0 0 0 rgba(138, 180, 255, 0.55);
+  animation: sayPulse 2.6s ease-out infinite;
+}
+
+.say-item:nth-child(2n) .say-mark { animation-delay: 0.4s; }
+.say-item:nth-child(3n) .say-mark { animation-delay: 0.9s; }
+.say-item:nth-child(4n) .say-mark { animation-delay: 1.3s; }
+
+@keyframes sayPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(138, 180, 255, 0.5); transform: scale(1); }
+  70%  { box-shadow: 0 0 0 12px rgba(138, 180, 255, 0); transform: scale(1.12); }
+  100% { box-shadow: 0 0 0 0 rgba(138, 180, 255, 0); transform: scale(1); }
+}
+
+/* 悬停时一道光扫过 */
+.say-item::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.09), transparent);
+  transform: skewX(-18deg);
+  transition: left 0.65s ease;
+  pointer-events: none;
+}
+
+.say-item:hover::after { left: 120%; }
+
+.say-item p {
+  margin: 0;
+  font-size: 15.5px;
+  line-height: 1.85;
+  color: rgba(238, 242, 255, 0.92);
+}
+
+.say-item small {
+  display: block;
+  margin-top: 8px;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: rgba(238, 242, 255, 0.3);
+}
+
+@media screen and (max-width: 768px) {
+  .say-item { padding: 18px 18px 16px 48px; }
+  .say-item p { font-size: 14.5px; }
+}
