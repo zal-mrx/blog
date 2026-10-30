@@ -11,7 +11,7 @@ language: zh-CN
 timezone: 'Asia/Shanghai'
 
 # ---------- 网址 ----------
-url: https://guileless-narwhal-616d5f.netlify.app
+url: https://ysqxue.cn
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
