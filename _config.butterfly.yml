@@ -1,4 +1,4 @@
-﻿# Butterfly 主题配置（只需写要覆盖的项，其余用主题默认值）
+# Butterfly 主题配置（只需写要覆盖的项，其余用主题默认值）
 
 # ---------- 顶部导航 ----------
 nav:
@@ -138,11 +138,12 @@ footer:
     version: true
   custom_text: 愿你我都能在自己的小窝里，安静地生长。
 
-# ---------- 访问统计（busuanzi 需要联网，先关掉，以后可开） ----------
+# ---------- 访问统计（不蒜子：页脚显示总访客/总浏览，文章页显示阅读数） ----------
+# 数据来自 busuanzi.ibruce.info 公共计数服务，免费、免注册；刷新也会 +1，看趋势即可
 busuanzi:
-  site_uv: false
-  site_pv: false
-  page_pv: false
+  site_uv: true
+  site_pv: true
+  page_pv: true
 
 # ---------- 资源来源：全部本地，国内访问不依赖 CDN ----------
 CDN:
