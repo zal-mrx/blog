@@ -1,11 +1,11 @@
-# 昨日晴空的小窝
+# 昨日晴空的World
 
 一个用 **Hexo + Butterfly** 搭的个人博客，配色是深青色「雨后海面」，首屏带云海背景、打字机副标题和波浪分隔。
 
-**线上地址：<https://guileless-narwhal-616d5f.netlify.app/>**
+**线上地址：<https://ysqxue.cn>**
 **代码仓库：<https://github.com/zal-mrx/blog>**
 
-改完内容提交推送，Netlify 会自动重新部署，几十秒后线上就更新了。
+改完内容提交推送，Vercel 会自动重新部署，一分钟左右线上就更新了。
 
 ---
 
