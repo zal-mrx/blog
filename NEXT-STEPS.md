@@ -18,7 +18,7 @@
 | 访问统计 | 不蒜子 busuanzi（页脚「本站访客数 / 本站总浏览量」+ 文章「浏览量」） |
 | 评论 | Giscus（存在 zal-mrx/blog 的 Discussions） |
 | 站点名 | 昨日晴空的World |
-| 作者 | 昨日晴空（GitHub: zal-mrx，邮箱 2959537317@qq.com） |
+| 作者 | 昨日晴空（GitHub: zal-mrx） |
 
 ## 二、DNS（阿里云，TTL 600）
 
